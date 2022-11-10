@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset = "UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Photo gallery UI</title>
+        <link rel="stylesheet" href="./style.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <script src="script.js" defer></script>
+        <script type="text/javascript" src="apigClient.js"></script>
+        <script type="text/javascript" src="sdk/lib/axios/dist/axios.standalone.js"></script>
+        <script type="text/javascript" src="sdk/lib/CryptoJS/rollups/hmac-sha256.js"></script>
+        <script type="text/javascript" src="sdk/lib/CryptoJS/rollups/sha256.js"></script>
+        <script type="text/javascript" src="sdk/lib/CryptoJS/components/hmac.js"></script>
+        <script type="text/javascript" src="sdk/lib/CryptoJS/components/enc-base64.js"></script>
+        <script type="text/javascript" src="sdk/lib/url-template/url-template.js"></script>
+        <script type="text/javascript" src="sdk/lib/apiGatewayCore/sigV4Client.js"></script>
+        <script type="text/javascript" src="sdk/lib/apiGatewayCore/apiGatewayClient.js"></script>
+        <script type="text/javascript" src="sdk/lib/apiGatewayCore/simpleHttpClient.js"></script>
+        <script type="text/javascript" src="sdk/lib/apiGatewayCore/utils.js"></script>
+        </title>
+    </head>
+
+    <body>
+        <section>
+            <div class = "container">
+                <h1 class = "logo">Voice Enabled Photo Album</h1>
+                <div class="header">
+                    
+                    <form class="form-inline">                        
+                        <input type="file"  id="img" name="img" title=" " accept="image/*" >
+                        <button onclick="uploadPhotos()" type="button"> Upload </button>
+                        <input type="text" placeholder="Search Photos" id="search-bar">
+                        <button type="submit" onclick="searchPhotos()" id="clicksearch">Search</button>
+                        <button type="button" onclick="micFunction()" id="clickmic">Speak</button>                        
+                        <p id="convo" class="response"></p>
+                                               
+                    </form>
+                </div>
+                <div class="gallery" id="photos">
+                    <div class="item">
+                        <img src="./images/img1.jpeg" alt="img">
+                        <h3>Mountain</h3>
+                    </div>
+                    <div class="item">
+                            <img src="./images/img2.jpeg" alt="img">
+                            <h3>Puppy</h3>
+                    </div>
+
+                    <div class="item">
+                            <img src="./images/img3.jpeg" alt="img">
+                            <h3>Trekking, Person, Mountain</h3>
+                    </div>
+
+                    <div class="item">
+                            <img src="./images/img4.jpeg" alt="img">
+                            <h3>Car</h3>
+                    </div>
+
+                    <div class="item">
+                            <img src="./images/img5.jpeg" alt="img">
+                            <h3>Tiger</h3>
+                    </div>
+
+                    <div class="item">
+                            <img src="./images/img6.jpeg" alt="img">
+                            <h3>Flower, Garden</h3>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+        <!-- <script src="https://unpkg.com/ionicons@4.5.10-0/dist/ionicons.js"></script> -->
+    </body>
+</html>

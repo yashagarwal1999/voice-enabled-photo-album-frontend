@@ -1,0 +1,38 @@
+Type: AWS::OpenSearchService::Domain
+Properties: 
+  AccessPolicies: '{"Version":"2012-10-17","Statement":[{"Effect":"Allow","Principal":{"AWS":"*"},"Action":"es:*","Resource":"arn:aws:es:us-east-1:877755470769:domain/photos-2/*"}]}'
+  AdvancedOptions: 
+    indices.fielddata.cache.size: '20'
+    indices.query.bool.max_clause_count: '1024'
+    override_main_response_version: 'false'
+    rest.action.multi.allow_explicit_index: 'true'
+  AdvancedSecurityOptions: 
+    Enabled: true
+    InternalUserDatabaseEnabled: true
+  ClusterConfig: 
+    InstanceType: t3.small.search
+    InstanceCount: 1
+    DedicatedMasterEnabled: false
+    ZoneAwarenessEnabled: false
+    WarmEnabled: false
+    ColdStorageOptions:
+    Enabled: false
+  CognitoOptions: 
+    Enabled: false
+  DomainEndpointOptions: 
+    EnforceHTTPS: true
+    TLSSecurityPolicy: Policy-Min-TLS-1-0-2019-07
+    CustomEndpointEnabled: false
+  DomainName: photos-2
+  EBSOptions: 
+    EBSEnabled: true
+    VolumeType: gp2
+    VolumeSize: 10
+  EncryptionAtRestOptions: 
+    Enabled: true
+    KmsKeyId: arn:aws:kms:us-east-1:877755470769:key/4d5ee49d-5a80-4bda-907e-4b6df29ac20c
+  EngineVersion: OpenSearch_1.0
+  NodeToNodeEncryptionOptions: 
+    Enabled: true
+  SnapshotOptions: {}
+  

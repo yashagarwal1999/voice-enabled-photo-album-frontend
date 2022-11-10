@@ -1,0 +1,11 @@
+version : 0.1
+phases :
+  pre_build :
+    commands :
+      - echo Nothing to do in pre build phase
+  build :
+    commands :
+      - echo Build started......
+artifacts :
+  files :
+    - '**/*'
